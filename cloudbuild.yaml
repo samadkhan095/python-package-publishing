@@ -13,7 +13,7 @@ steps:
   - '-m'
   - 'twine'
   - 'upload'
-  - 'repository-url'
+  - '--repository-url'
   - 'https://us-central1-python.pkg.dev/project-aims-dev/quickstart-python-repo/'
   - '/workspace/dist/*'
 
