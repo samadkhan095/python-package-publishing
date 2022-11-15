@@ -1,0 +1,23 @@
+steps:
+- name: python
+  entrypoint: python
+  args: ["-m", "build"]
+
+- name: python
+  entrypoint: pip
+  args: ["install", "-r", "requirements.txt", "--user"]
+
+- name: python
+  entrypoint: python
+  args:
+  - '-m'
+  - 'twine'
+  - 'upload'
+  - 'repository-url'
+  - 'https://us-central1-python.pkg.dev/project-aims-dev/quickstart-python-repo/'
+  - 'dist/*'
+
+timeout: 3600s
+options:
+  logging: GCS_ONLY
+logsBucket: gs://aims_cloud_build_logs
