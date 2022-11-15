@@ -1,30 +1,21 @@
 steps:
-# - name: python
-#   entrypoint: pip
-#   args: ["install", "-r", "requirements.txt", "--user"]
-
-# - name: python
-#   entrypoint: python
-#   args: ["-m", "build"]
-
-# - name: python
-#   entrypoint: python
-#   args:
-#   - '-m'
-#   - 'twine'
-#   - 'upload'
-#   - '--repository-url'
-#   - 'https://us-central1-python.pkg.dev/project-aims-dev/quickstart-python-repo/'
-#   - '/workspace/dist/*'
-
 - name: python
   entrypoint: pip
+  args: ["install", "-r", "requirements.txt", "--user"]
+
+- name: python
+  entrypoint: python
+  args: ["-m", "build"]
+
+- name: python
+  entrypoint: python
   args:
-  - 'install'
-  - '--index-url'
-  - 'https://us-central1-python.pkg.dev/project-aims-dev/quickstart-python-repo/simple/'
-  - 'samad'
-  - '--verbose'
+  - '-m'
+  - 'twine'
+  - 'upload'
+  - '--repository-url'
+  - 'https://us-central1-python.pkg.dev/project-aims-dev/quickstart-python-repo/'
+  - '/workspace/dist/*'
 
 timeout: 3600s
 options:
